@@ -1,6 +1,7 @@
-# manifest配置项
-    // 清单文件的版本，这个必须写，而且必须是2
-    "manifest_version": 2,
+# MV3配置项
+> Manifest V3（简称MV3）
+    // 清单文件的版本，这个必须写，Manifest V3必须是3
+    "manifest_version": 3,
     // 插件的名称
     "name": "demo",
     // 插件的版本
@@ -15,12 +16,11 @@
     },
     // 会一直常驻的后台JS或后台页面
     "background":{
-        // 2种指定方式，如果指定JS，那么会自动生成一个背景页
-        "page": "background.html"
-        //"scripts": ["js/background.js"]
+        // mv3 改为service_worker 只能是js（根目录为最终build生成的插件包目录）
+        // "service_worker": "js/background.js"
     },
-    // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
-    "browser_action": {
+    // 浏览器右上角图标设置
+    "action": {
         "default_icon": "img/icon.png",
         // 图标悬停时的标题，可选
         "default_title": "这是一个示例Chrome插件",
@@ -64,7 +64,7 @@
     ],
     // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
     "web_accessible_resources": ["js/inject.js"],
-    // 插件主页，这个很重要，不要浪费了这个免费广告位
+    // 插件主页，这个很重要，不要浪费了这个免费广告位,必须是链接
     "homepage_url": "https://www.baidu.com",
     // 覆盖浏览器默认页面
     "chrome_url_overrides":{

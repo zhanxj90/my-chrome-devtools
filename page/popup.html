@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单栏</title>
+    <style>
+        body{
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h3>点击右上角图标打开的页面，</h3>
+    <p>获取background配置项page.js中的数据有两种方式：</p>
+    <p>1,直接引入page.js</p>
+    <p>2,通过方法chrome.extension.getBackgroundPage()---但是这第二种方法我没成功，可能是只在mv2版本中支持</p>
+    <br/>
+    <button id="btn">点击修改页面背景色</button>
+</body>
+</html>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/background.js"></script>
+<script type="text/javascript" src="/js/popup.js"></script>

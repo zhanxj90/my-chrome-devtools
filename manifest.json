@@ -1,54 +1,35 @@
 {
-    "manifest_version": 2,
-    "name": "demo",
-    "version": "1.0.0",
-    "description": "简单的Chrome扩展demo",
+    "manifest_version": 3,
+    "name": "chrome-utils",
+    "description": "我就是个dome，包含配置项的测试和一些工具函数",
+    "version": "1.0",
     "icons":{
-        "16": "img/icon.png",
-        "48": "img/icon.png",
         "128": "img/icon.png"
     },
-    "background":{
-        "page": "background.html"
+    "action": {
+      "default_icon": "img/tab_icon.png",
+      "default_popup": "page/popup.html"
     },
-    "browser_action": {
-        "default_icon": "img/icon.png",
-        "default_title": "这是一个示例Chrome插件",
-        "default_popup": "popup.html"
+    "background": {
+      "service_worker": "js/background.js"
     },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "tabs"
+    ],
     "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["js/jquery-1.8.3.js", "js/content-script.js"],
-            "css": ["css/custom.css"],
-            "run_at": "document_start"
-        },
-        {
-            "matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
-            "js": ["js/show-image-content-size.js"]
-        }
+      {
+        "matches": [
+          "*://*/*"
+        ],
+        "js": [
+          "js/jquery.js",
+          "js/content.js"
+        ]
+      }
     ],
-    "permissions":[
-        "contextMenus", 
-        "tabs", 
-        "notifications", 
-        "webRequest", 
-        "webRequestBlocking",
-        "storage", 
-        "http://*/*", 
-        "https://*/*" 
-    ],
-    "web_accessible_resources": ["js/inject.js"],
-    "homepage_url": "https://www.baidu.com",
     "chrome_url_overrides":{
-        "newtab": "newtab.html"
-    },
-    "options_page": "options.html",
-    "options_ui":{
-        "page": "options.html",
-        "chrome_style": true
-    },
-    "omnibox": { "keyword" : "go" },
-    "default_locale": "zh_CN",
-    "devtools_page": "devtools.html"
+        "newtab": "page/newtab.html"
+    }
 }

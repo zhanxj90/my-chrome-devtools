@@ -18,14 +18,13 @@
 ```
 
 ## 互相通信概览
-
-    | 发送方\接收方 | injected-script | content-script | popup-js | background-js |
-    |  ----  | ----  | ----  | ----  | ----  |
-    | injected-script | - | window.postMessage | - | - |
-    | content-script | window.postMessage | - | chrome.runtime.sendMessage、chrome.runtime.connect | chrome.runtime.sendMessage、chrome.runtime.connect |
-    | popup-js | - | chrome.tabs.sendMessage、chrome.tabs.connect | - | chrome.extension. getBackgroundPage()、引入background-js直接拿数据 |
-    | background-js | - | chrome.tabs.sendMessage chrome.tabs.connect | chrome.extension.getViews | - |
-    | devtools-js | chrome.devtools.inspectedWindow.eval | - | chrome.runtime.sendMessage | chrome.runtime.sendMessage |
+| 发送方\接收方 | injected-script | content-script | popup-js | background-js |
+|  ----  | ----  | ----  | ----  | ----  |
+| injected-script | - | window.postMessage | - | - |
+| content-script | window.postMessage | - | chrome.runtime.sendMessage、chrome.runtime.connect | chrome.runtime.sendMessage、chrome.runtime.connect |
+| popup-js | - | chrome.tabs.sendMessage、chrome.tabs.connect | - | chrome.extension. getBackgroundPage()、引入background-js直接拿数据 |
+| background-js | - | chrome.tabs.sendMessage chrome.tabs.connect | chrome.extension.getViews | - |
+| devtools-js | chrome.devtools.inspectedWindow.eval | - | chrome.runtime.sendMessage | chrome.runtime.sendMessage |
 
 ## chrome文献
     - [chrome扩展开发中文教程](https://chrome.cenchy.com/tabs.html#method-connect)
